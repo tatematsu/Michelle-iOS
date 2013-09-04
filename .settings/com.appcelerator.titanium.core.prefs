@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+provisioning_profiles/development/83060EE2-4FC8-4DC7-BEFC-E63D5EE60224/appid=com.la-michelle.app
+provisioning_profiles/development/83060EE2-4FC8-4DC7-BEFC-E63D5EE60224/name=LaMichelle-Dev
+provisioning_profiles/development/83060EE2-4FC8-4DC7-BEFC-E63D5EE60224/uuid=83060EE2-4FC8-4DC7-BEFC-E63D5EE60224
+provisioning_profiles/distribution/75AC5826-BAA6-4F1F-92B0-AE2B28CD2231/appid=com.la-michelle.app
+provisioning_profiles/distribution/75AC5826-BAA6-4F1F-92B0-AE2B28CD2231/name=Michelle Group
+provisioning_profiles/distribution/75AC5826-BAA6-4F1F-92B0-AE2B28CD2231/uuid=75AC5826-BAA6-4F1F-92B0-AE2B28CD2231

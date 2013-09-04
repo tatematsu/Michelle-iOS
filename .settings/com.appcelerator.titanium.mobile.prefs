@@ -1,0 +1,17 @@
+android/ATTR_MINIFY=true
+android/ATTR_PROJECT_NAME=Michelle
+android/abi=armeabi
+android/distribute_path=C\:\\Users\\ntatematsu\\Documents\\Titanium_Studio_Workspace\\Michelle
+android/keystore_alias=LaMichelle
+android/keystore_password=michelle234
+android/keystore_path=C\:\\Users\\ntatematsu\\Documents\\Titanium_Studio_Workspace\\Michelle\\michelle_app_keystore
+android/recent_output=C\:\\Users\\ntatematsu\\Documents\\Titanium_Studio_Workspace\\Michelle
+android/sdk_version=Google APIs Android 2.2
+eclipse.preferences.version=1
+iosLaunchConfigurationAttributes/ATTR_MINIFY=true
+iosLaunchConfigurationAttributes/ATTR_PROJECT_NAME=Michelle
+iosLaunchConfigurationAttributes/appid=com.la-michelle.app
+iosLaunchConfigurationAttributes/certificate=Hirotoshi Kaneko (4GH3VNAF39)
+iosLaunchConfigurationAttributes/keychain=
+iosLaunchConfigurationAttributes/sdk_version=6.1
+iosLaunchConfigurationAttributes/uuid=83060EE2-4FC8-4DC7-BEFC-E63D5EE60224
