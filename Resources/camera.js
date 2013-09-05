@@ -61,7 +61,10 @@ function uploadCameraImage(image){
         } );
         xhr.onload = function(){
                 var json = JSON.parse(xhr.responseText);
-                alert(json);// 以下jsonでごにょごにょする
+                //alert(json.error );// エラー判定
+	                if( json.error == "OK" ){
+	                	win.close();
+	                }
         };
         xhr.onerror = function(){};
 }
