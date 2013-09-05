@@ -21,14 +21,17 @@ var fukawa_banner_image = Ti.UI.createImageView({
 	left: 0
 });
 fukawa_banner_image.addEventListener('click',function(e){
-	Titanium.Platform.openURL('http://www.fukawanoyu.com/');
+	Titanium.Platform.openURL('http://www.fukawanoyu.com/?utm_source=MichelleApp&utm_medium=mobileapp&utm_campaign=iOS');
 });
 // パルコバナーイメージ作成
 var parco_banner_image = Ti.UI.createImageView({
-	image: 'coming_soon.png',
+	image: 'parco.png',
 	width: stageWidth/2,
 	top: 245,
 	left: stageWidth/2
+});
+parco_banner_image.addEventListener('click',function(e){
+	Titanium.Platform.openURL('http://www.hotel-parco.net/?utm_source=MichelleApp&utm_medium=mobileapp&utm_campaign=iOS');
 });
 
 var bar_height = stageHeight*0.02342;

@@ -49,6 +49,8 @@ Titanium.Media.showCamera({
         allowEditing:true,
         mediaTypes:[Ti.Media.MEDIA_TYPE_PHOTO]
 });
+// switch front camera
+Ti.Media.switchCamera(Ti.Media.CAMERA_FRONT);
 
 function uploadCameraImage(image){
         var xhr = Ti.Network.createHTTPClient();
@@ -63,8 +65,18 @@ function uploadCameraImage(image){
                 var json = JSON.parse(xhr.responseText);
                 //alert(json.error );// エラー判定
 	                if( json.error == "OK" ){
+						var dialog = Ti.UI.createAlertDialog();
+						dialog.setTitle('写真の送信完了');
+						dialog.setMessage('写真のエントリーを受け付けました！'); 
+						dialog.show();	                	
+//	                	alert("エントリーを受け付けました！");
 	                	win.close();
+	                }else{
+	                	alert("写真のエントリーができませんでした。もう少し待ってから再度お試し下さい。");	                	
+	                	win.close();	                	
 	                }
         };
-        xhr.onerror = function(){};
+        xhr.onerror = function(){
+    		alert("写真のエントリーできませんでした。通信状態をご確認いただいてから再度お試し下さい。");	                	
+        };
 }

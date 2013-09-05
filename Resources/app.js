@@ -20,30 +20,20 @@ var map_win = Ti.UI.createWindow({
 	url :'map_win.js'	
 });
 
-
-/*
-var win3 = Ti.UI.createWindow({
-	title :'クーポン',
-	backgroundColor: 'white'
-});*/
-
 var reservation_tab = Ti.UI.createTab({
-//	url :'reservation_tab.js',
-	icon: 'KS_nav_views.png',
-//	icon: 'reserve_icon.png',
+	icon: 'booking.png',
 	title:'空室状況・ご予約',
 	window: reservation_win
 });
 
 var map_tab = Ti.UI.createTab({
-	icon: 'KS_nav_ui.png',
-//	icon: 'location_icon.png',
+	icon: 'map.png',
 	title:'ホテル地図',
 	window: map_win
 });
 // イベント情報タブ
 var event_tab = Ti.UI.createTab({
-	icon: 'KS_nav_ui.png',
+	icon: 'camera.png',
 	title:'フォトコンテスト',
 	window: event_win
 });
