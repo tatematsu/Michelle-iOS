@@ -45,7 +45,7 @@ Titanium.Media.showCamera({
                 // show alert
                 a.show();
         },
-        saveToPhotoGallery:true,
+        saveToPhotoGallery:false,
         allowEditing:true,
         mediaTypes:[Ti.Media.MEDIA_TYPE_PHOTO]
 });
@@ -54,7 +54,11 @@ function uploadCameraImage(image){
         var xhr = Ti.Network.createHTTPClient();
         var url = "http://www.la-michelle.com/upload_photos/index.php";
         xhr.open('POST', url);
-        xhr.send({media: image});
+        xhr.send({
+        	media: image ,
+        	name: 'pic01.jpg',
+        	tmp_name:"pic01_tmp.jpg"
+        } );
         xhr.onload = function(){
                 var json = JSON.parse(xhr.responseText);
                 alert(json);// 以下jsonでごにょごにょする
