@@ -3,16 +3,6 @@ stageWidth = Titanium.Platform.displayCaps.platformWidth;
 stageHeight = Titanium.Platform.displayCaps.platformHeight;
 
 var camera_view = Ti.UI.createView();
-
-var otanoshimi_label = Ti.UI.createLabel({
-	top:65,
-	text:"仲良し二人の写真を撮ってコンテストに出よう！一番ステキな写真が撮れた二人には・・・
-	な、な〜んと○○がもらえる！さあ、今スグ最高の一枚を撮って応募だ！
-	ご利用日と部屋番号をノートに書いて写してね！うまく取れるかな？？
-	（※「正体がバレると恥ずかしいっ！」というお二人はお部屋に用意してあるかぶりものをご利用下さい。）
-	カメラ起動ボタンを押すと、前面カメラが起動しますので、二人で上手に撮影してください。（インカメラがない機種に付きましてエントリーができませんのでご了承下さい。）"
-});
-
 // ロゴイメージ作成
 var logo_image = Ti.UI.createImageView({
 	image: 'logo.png',
@@ -20,17 +10,41 @@ var logo_image = Ti.UI.createImageView({
 	top: stageHeight*0.014,
 	left: stageWidth*0.25
 });
-camera_view.add(logo_image);
-camera_view.add(otanoshimi_label);
+var contest_img = Ti.UI.createImageView({
+	image: 'photo_contest.png',
+	width: 300,
+	top: 50,
+	left: 12
+});
 
+var oubo_label = Ti.UI.createLabel({
+	top:80,
+	text:"二人の写真を応募しよう！"
+	//一番ステキな写真が撮れた二人には・・・	な、な〜んと○○がもらえる！さあ、今スグ最高の一枚を撮って応募だ！
+//	ご利用日と部屋番号をノートに書いて写してね！うまく取れるかな？？
+//	カメラ起動ボタンを押すと、前面カメラが起動しますので、二人で上手に撮影してください。（インカメラがない機種に付きましてエントリーができませんのでご了承下さい。"
+});
+
+/*/ camera image
+var camera_img = Ti.UI.createImageView({
+	image: 'camera_event.png',
+	width: 80,
+	top: stageHeight*0.080,
+	left: stageWidth*0.35	
+});*/
+var couples_img = Ti.UI.createImageView({
+	image: 'couples.png',
+	width: 300,
+	top: 95,
+	left: 12	
+});
 // カメラ起動ボタン
 var camera_start_btn = Titanium.UI.createButton({
         title:'お楽しみカメラ起動',
         height:40,
-        width:200,
-        top:10,
+        width:250,
+        top:288,
 });
-
 //クリック時の動作
 camera_start_btn.addEventListener('click', function(e)
 {
@@ -40,9 +54,20 @@ camera_start_btn.addEventListener('click', function(e)
         });
         win.open(win,{animated:true});
 });
+var oubo_memo = Ti.UI.createLabel({
+	top:330,
+	width:300,
+	text:"入ったお店と部屋番号を書いて2人仲良く写真を撮ってね！ご応募の結果は各お店のホームページ上で発表致します。ステキなプレゼントをゲットしよう。",
+	font:{fontSize:10}
+});
 
+camera_view.add(contest_img);
+camera_view.add(couples_img);
+camera_view.add(logo_image);
+camera_view.add(oubo_label);
 //カメラ起動ボタン追加
 camera_view.add(camera_start_btn);
+camera_view.add(oubo_memo);
 
 //ウィンドウに追加
 Ti.UI.currentWindow.add(camera_view);

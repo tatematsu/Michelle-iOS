@@ -10,14 +10,14 @@ var reservation_view = Ti.UI.createView();
 var logo_image = Ti.UI.createImageView({
 	image: 'logo.png',
 	width: stageWidth/2,
-	top: stageHeight*0.014,
+	top: stageHeight*0.03,
 	left: stageWidth*0.25
 });
 // ふかわバナーイメージ作成
 var fukawa_banner_image = Ti.UI.createImageView({
 	image: 'fukawanoyu.png',
 	width: stageWidth/2,
-	top: 245,
+	top: 250,
 	left: 0
 });
 fukawa_banner_image.addEventListener('click',function(e){
@@ -27,7 +27,7 @@ fukawa_banner_image.addEventListener('click',function(e){
 var parco_banner_image = Ti.UI.createImageView({
 	image: 'parco.png',
 	width: stageWidth/2,
-	top: 245,
+	top: 250,
 	left: stageWidth/2
 });
 parco_banner_image.addEventListener('click',function(e){
