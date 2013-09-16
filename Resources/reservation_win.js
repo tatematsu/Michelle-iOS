@@ -79,20 +79,18 @@ xhr.onload = function() {
 	
 	// JSONパース
 	try{
-//		var json = eval('('+this.responseText+')');
 		var	json = JSON.parse(this.responseText);
-
 //alert(json);
 		// 各店舗のデータ
 		for (var i=0; i<json.michelle.length;i++) {
 			var info = json.michelle[i];
-//Ti.API.info(i+"/"+info.shop_name);
+//debug
+//alert(info);
 	      // ここから生成する
 			if( info.shop_name<2 || info.shop_name>4 || info.available<=0 ){
 				//do nothing
 			}
-			if(info.shop_name == 4 && info.available >0){
-//Ti.API.info('---------hatsukaichi--OK-------');				
+			if(info.shop_name == 4 && info.available >0){				
 				if(info.empty_room_nums>0){
 					var empty_hatsukaichi = Ti.UI.createLabel({
 						text:info.empty_room_nums+'部屋空きがあります',
@@ -110,7 +108,6 @@ xhr.onload = function() {
 					});
 					reservation_view.add(status_hatsukaichi);
 					reservation_view.add(empty_hatsukaichi);
-
 				}else{
 					//　廿日市満室ボタン作成
 					var status_hatsukaichi = Ti.UI.createImageView({
@@ -119,14 +116,12 @@ xhr.onload = function() {
 						height: status_height,
 						left:	status_left,
 						top:	60
-					})
+					});
 					reservation_view.add(status_hatsukaichi);
 				}
-			}
-			
+			}			
 			if(info.shop_name == 2 && info.available >0){
-				if(info.empty_room_nums>0){				
-//Ti.API.info('---------kabe--OK-------');				
+				if(info.empty_room_nums>0){							
 					var empty_kabe = Ti.UI.createLabel({
 						text:info.empty_room_nums+'部屋空きがあります',
 						left:	empty_label_left,
@@ -155,9 +150,7 @@ xhr.onload = function() {
 					reservation_view.add(status_kabe);				
 				}
 			}
-			if(info.shop_name == 3 && info.available >0){
-				
-//Ti.API.info('---------funakoshi--OK-------');				
+			if(info.shop_name == 3 && info.available >0){			
 				if(info.empty_room_nums>0){
 			
 					var empty_funakoshi = Ti.UI.createLabel({
@@ -189,12 +182,12 @@ xhr.onload = function() {
 					reservation_view.add(empty_funakoshi);
 				}
 			}
-	  	};
+	  	}
 	  	
 	}catch(e){
-		alert('空室状況のデータが読み込めませんでした。');			
+		alert(e+'空室状況のデータが読み込めませんでした。');			
 	}
-}
+};
 xhr.onerror = function(error){
 	Ti.API.info(error[0]);
 };
