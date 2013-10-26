@@ -1,23 +1,45 @@
 //画像解像度取得
 stageWidth = Titanium.Platform.displayCaps.platformWidth;
-stageHeight = Titanium.Platform.displayCaps.platformHeight;
-//alert(stageWidth+"/"+stageHeight);
 
-//空室予約
-var reservation_view = Ti.UI.createView();
+//空室ビュー
+var reservation_view = Ti.UI.createView({
+	top:	0
+});
 
 // ロゴイメージ作成
 var logo_image = Ti.UI.createImageView({
 	image: 'logo.png',
 	width: stageWidth/2,
-	top: stageHeight*0.03,
+	top: 47,
 	left: stageWidth*0.25
+});
+//　区切り線
+var border_img_01 = Ti.UI.createButton({
+	backgroundImage:'michelle_border.png',
+	width: stageWidth,
+	height: 10,
+	top: 126,
+	left: 0
+});
+var border_img_02 = Ti.UI.createButton({
+	backgroundImage:'michelle_border.png',
+	width: stageWidth,
+	height: 10,
+	top: 172,
+	left: 0
+});
+var border_img_03 = Ti.UI.createButton({
+	backgroundImage:'michelle_border.png',
+	width: stageWidth,
+	height: 10,
+	top: 218,
+	left: 0
 });
 // ふかわバナーイメージ作成
 var fukawa_banner_image = Ti.UI.createImageView({
 	image: 'fukawanoyu.png',
 	width: stageWidth/2,
-	top: 250,
+	top: 260,
 	left: 0
 });
 fukawa_banner_image.addEventListener('click',function(e){
@@ -27,39 +49,14 @@ fukawa_banner_image.addEventListener('click',function(e){
 var parco_banner_image = Ti.UI.createImageView({
 	image: 'parco.png',
 	width: stageWidth/2,
-	top: 250,
+	top: 260,
 	left: stageWidth/2
 });
 parco_banner_image.addEventListener('click',function(e){
 	Titanium.Platform.openURL('http://www.hotel-parco.net/?utm_source=MichelleApp&utm_medium=mobileapp&utm_campaign=iOS');
 });
 
-var bar_height = stageHeight*0.02342;
-
-//　区切り線
-var border_img_01 = Ti.UI.createButton({
-	backgroundImage:'michelle_border.png',
-	width: stageWidth,
-	height: 10,
-	top: 96,
-	left: 0
-});
-var border_img_02 = Ti.UI.createButton({
-	backgroundImage:'michelle_border.png',
-	width: stageWidth,
-	height: 10,
-	top: 142,
-	left: 0
-});
-var border_img_03 = Ti.UI.createButton({
-	backgroundImage:'michelle_border.png',
-	width: stageWidth,
-	height: 10,
-	top: 188,
-	left: 0
-});
-
-// JSON 読み込み
+// 空室JSON 読み込み
 // オフラインの場合
 if(Titanium.Network.online == false){
     // メッセージ
@@ -95,7 +92,7 @@ xhr.onload = function() {
 					var empty_hatsukaichi = Ti.UI.createLabel({
 						text:info.empty_room_nums+'部屋空きがあります',
 						left:	empty_label_left,
-						top:	70,
+						top:	100,
 						color: '#fff',
 						font:{fontSize:11}						
 					});
@@ -104,7 +101,7 @@ xhr.onload = function() {
 						width:	status_width,
 						height: status_height,
 						left:	status_left,
-						top:	60
+						top:	90
 					});
 					reservation_view.add(status_hatsukaichi);
 					reservation_view.add(empty_hatsukaichi);
@@ -115,7 +112,7 @@ xhr.onload = function() {
 						width:	status_width,
 						height: status_height,
 						left:	status_left,
-						top:	60
+						top:	90
 					});
 					reservation_view.add(status_hatsukaichi);
 				}
@@ -125,7 +122,7 @@ xhr.onload = function() {
 					var empty_kabe = Ti.UI.createLabel({
 						text:info.empty_room_nums+'部屋空きがあります',
 						left:	empty_label_left,
-						top:	162,
+						top:	192,
 						color: '#fff',
 						font:{fontSize:11}						
 					});
@@ -134,18 +131,18 @@ xhr.onload = function() {
 						width:	status_width,
 						height: status_height,
 						left:	status_left,
-						top:	152
+						top:	182
 					});
 					reservation_view.add(status_kabe);
 					reservation_view.add(empty_kabe);
-				}else{
+				}else if(info.empty_room_nums<=0){
 					//　可部満室ボタン作成
 					var status_kabe = Ti.UI.createImageView({
 						image:'status_full.png',
 						width:	status_width,
 						height: status_height,
 						left:	status_left,
-						top:	152
+						top:	182
 					});				
 					reservation_view.add(status_kabe);				
 				}
@@ -156,7 +153,7 @@ xhr.onload = function() {
 					var empty_funakoshi = Ti.UI.createLabel({
 						text:info.empty_room_nums+'部屋空きがあります',
 						left:	empty_label_left,
-						top: 	116,
+						top: 	146,
 						color: '#fff',
 						font:{fontSize:11}
 					});
@@ -165,21 +162,22 @@ xhr.onload = function() {
 						width:	status_width,
 						height: status_height,
 						left:	status_left,
-						top:	106
+						top:	136
 					});
 					reservation_view.add(status_funakoshi);
 					reservation_view.add(empty_funakoshi);
 					
 				}else{
+//alert(info);
 					// 船越満室ボタン
 					var status_funakoshi = Ti.UI.createImageView({
 						image:'status_full.png',
 						width:	status_width,
 						height: status_height,
 						left:	status_left,
-						top:	106
+						top:	136
 					});					
-					reservation_view.add(empty_funakoshi);
+					reservation_view.add(status_funakoshi);
 				}
 			}
 	  	}
@@ -204,17 +202,14 @@ xhr.onerror = null;
 xhr = null;
 */
 
-var button_width = stageWidth*0.46;
-var button_height = stageHeight*0.0644;
-
 //　廿日市ボタン作成
 var hatsukaichi_button = Ti.UI.createButton({
 	backgroundImage:'hatsukaichi_ttl.png',
 	width: 144,
 	height: 36,
-	top: 60,
+	top: 90,
 	left: 0
-})
+});
 
 // 廿日市のウェブ画面に移動。
 hatsukaichi_button.addEventListener('click',function(e){
@@ -225,9 +220,9 @@ var funakoshi_button = Ti.UI.createButton({
 	backgroundImage:'funakoshi_ttl.png',
 	width: 144,
 	height: 36,
-	top: 106,
+	top: 136,
 	left: 0
-})
+});
 
 funakoshi_button.addEventListener('click',function(e){
 	Titanium.Platform.openURL('http://funakoshi.la-michelle.com/reservation/#reservation');
@@ -238,9 +233,9 @@ var kabe_button = Ti.UI.createButton({
 	backgroundImage:'kabe_ttl.png',
 	width: 144,
 	height: 36,
-	top: 152,
+	top: 182,
 	left: 0
-})
+});
 // 可部のウェブ画面に移動。
 kabe_button.addEventListener('click',function(e){
 	Titanium.Platform.openURL('http://kabe.la-michelle.com/reservation/#reservation');
@@ -254,7 +249,7 @@ var notify_alert_button = Ti.UI.createButton({
 	//backgroundImage:	'letter.png',
 	title:'空室お知らせアラートを登録する',
 	width:	300,
-	top: 200
+	top: 50
 });
 
 // メール送信画面生成
@@ -276,7 +271,7 @@ notify_alert_button.addEventListener('click',function(e){
 });
 
 //ロゴ追加
-reservation_view.add(logo_image);
+//reservation_view.add(logo_image);
 
 // バナー追加
 reservation_view.add(fukawa_banner_image);

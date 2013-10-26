@@ -1,17 +1,16 @@
 //画像解像度取得
 stageWidth = Titanium.Platform.displayCaps.platformWidth;
-stageHeight = Titanium.Platform.displayCaps.platformHeight;
 
 // ロゴイメージ作成
 var logo_image = Ti.UI.createImageView({
 	image: 'logo.png',
 	width: stageWidth/2,
-	top: stageHeight*0.014,
+	top: 7,
 	left: stageWidth*0.25
 });
 
 //地図ビュー作成
-var view2 = Ti.UI.createView();
+var map_view = Ti.UI.createView();
 var hatsukaichi = Ti.Map.createAnnotation({
 	latitude: 34.331876,
 	longitude: 132.320321,
@@ -34,7 +33,7 @@ var kabe = Ti.Map.createAnnotation({
 var nav_hat = Ti.UI.createButton(
 	{
 		title:'廿日市までナビ',
-		top: 270,
+		top: 290,
 		left: 0,
 		width:	stageWidth/2
 	}
@@ -47,7 +46,7 @@ nav_hat.addEventListener('click',function(e){
 var nav_kabe = Ti.UI.createButton(
 	{
 		title:'可部までナビ',
-		top: 315,
+		top: 330,
 		left: 0,	//stageWidth/3,
 		width:	stageWidth/2
 	}
@@ -59,7 +58,7 @@ nav_kabe.addEventListener('click',function(e){
 var nav_funakoshi = Ti.UI.createButton(
 	{
 		title:'船越までナビ',
-		top: 270,
+		top: 290,
 		left: stageWidth/2,
 		width:	stageWidth/2
 	}
@@ -89,17 +88,17 @@ var access_map = Ti.Map.createView({
 	region: { latitude:34.376287,longitude:132.420743,latitudeDelta:0.25,longitudeDelta:0.25 },
 	animate: true,
 	regionFit: true,
-	top: stageHeight*0.1,
+	top: 50,
 	width: stageWidth,
 	height: 220,
 	userLocation: true,
 	annotations: [kabe,funakoshi,hatsukaichi]
 });
-view2.add(logo_image);
-view2.add(access_map);
-view2.add(nav_hat);
-view2.add(nav_kabe);
-view2.add(nav_funakoshi);
+map_view.add(logo_image);
+map_view.add(access_map);
+map_view.add(nav_hat);
+map_view.add(nav_kabe);
+map_view.add(nav_funakoshi);
 
 //ウィンドウに追加
-Ti.UI.currentWindow.add(view2);
+Ti.UI.currentWindow.add(map_view);

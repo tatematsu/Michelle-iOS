@@ -1,4 +1,7 @@
 eclipse.preferences.version=1
+provisioning_profiles/development/64AC411A-6FAB-4AC1-B90D-7584F75FDFDD/appid=com.la-michelle.app
+provisioning_profiles/development/64AC411A-6FAB-4AC1-B90D-7584F75FDFDD/name=WebConsulting Tatematsu Michelle App Dev
+provisioning_profiles/development/64AC411A-6FAB-4AC1-B90D-7584F75FDFDD/uuid=64AC411A-6FAB-4AC1-B90D-7584F75FDFDD
 provisioning_profiles/development/83060EE2-4FC8-4DC7-BEFC-E63D5EE60224/appid=com.la-michelle.app
 provisioning_profiles/development/83060EE2-4FC8-4DC7-BEFC-E63D5EE60224/name=LaMichelle-Dev
 provisioning_profiles/development/83060EE2-4FC8-4DC7-BEFC-E63D5EE60224/uuid=83060EE2-4FC8-4DC7-BEFC-E63D5EE60224
